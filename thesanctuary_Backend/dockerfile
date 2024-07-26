@@ -1,0 +1,5 @@
+FROM node:18
+WORKDIR /thesanctuary_Backend
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install

@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  # frontend:
+  #   build: ./thesanctuary_Frontend
+  #   ports:
+  #     - "80:5173"
+  #   volumes:
+  #     - ./thesanctuary_Frontend:/thesanctuary_Frontend
+  #     - /thesanctuary_Frontend/node_modules
+  #   command: npm run dev
+  backend:
+    build: ./thesanctuary_Backend
+    ports:
+      - "8080:3001"
+    volumes:
+      - ./thesanctuary_Backend:/thesanctuary_Backend
+    command: npm run dev
+
+  database:
+    image: postgres:16
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
